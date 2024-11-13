@@ -20,15 +20,16 @@ spring:
       matching-strategy: ant_path_matcher
   application:
     name: mega-mover
-  redis:
-    host: ${REDIS_HOST:127.0.0.1}
-    port: ${REDIS_PORT:6379}
-    password: ${REDIS_PASSWORD:123321}
-    lettuce:
-      pool:
-        max-active: 8
-        max-idle: 8
-        min-idle: 0
-        max-wait: 100ms
+  data:
+    neo4j:
+      uri: ${NEO4J_URI:bolt://localhost:7687}
+      database: ${NEO4J_DATABASE:neo4j}
+      username: ${NEO4J_USERNAME:neo4j}
+      password: ${NEO4J_PASSWORD:12345678}
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:123321}
+      timeout: 2000
 server:
   port: 8080
